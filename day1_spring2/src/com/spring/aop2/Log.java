@@ -1,4 +1,4 @@
-package com.spring.apo2;
+package com.spring.aop2;
 
 /**
  * Created by IntelliJ IDEA.

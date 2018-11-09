@@ -1,4 +1,4 @@
-package com.spring.apo2;
+package com.spring.aop2;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,11 +10,13 @@ package com.spring.apo2;
  * @Create : 2018-11-09-18:14
  */
 public class BankServiceImpl {
+    private Security s = new Security();
+    private Log log  = new Log();
 
     /**
      * Desciption: 查询余额
      */
-    public void getMoney(){
+    public void getMoney(){//高内聚，低耦合
         System.out.println("BankServiceImpl ........getMoney() ......");
     }
 

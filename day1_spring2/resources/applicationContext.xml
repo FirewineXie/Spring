@@ -7,5 +7,7 @@
 
 
 
-    <import resource="com/spring/di1/panda.xml"></import>
+    <!--<import resource="com/spring/di1/panda.xml"></import>-->
+    <import resource="com/spring/aop2/aop.xml"></import>
+
 </beans>

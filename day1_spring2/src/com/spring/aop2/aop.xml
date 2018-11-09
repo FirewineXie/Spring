@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+
+
+    <!-- 配置安全bean -->
+    <bean id="security" class="com.spring.aop2.Security"></bean>
+
+    <!-- 配置核心业务bean -->
+    <bean id="bankServiceImpl" class="com.spring.aop2.BankServiceImpl"></bean>
+
+    <!-- 配置日志bean -->
+    <bean id="riZhi" class="com.spring.aop2.Log"></bean>
+
+    <!-- 配置安全bean -->
+    <bean id="clean" class="com.spring.aop2.Clean"></bean>
+
+    <!-- 配置aop -->
+    <aop:config>
+        <!-- 配置切入点 -->
+        <aop:pointcut expression="execution (* com.spring.aop2.BankServiceImpl.* (..))" id="aaa"/>
+        <!--  配置切面-->
+        <aop:aspect ref="security">
+            <!--before ： 代表前置通知
+                method： 通知方法名
+                pointcut-ref : 切入点id-->
+            <aop:before method="isSecurity" pointcut-ref="aaa"/>
+        </aop:aspect>
+        <aop:aspect ref="riZhi" order="1"><!--数值越大，越先执行-->
+            <aop:after method="log" pointcut-ref="aaa"/>
+        </aop:aspect>
+        <aop:aspect ref="clean" order="2">
+            <aop:after method="ClearResource" pointcut-ref="aaa"/>
+        </aop:aspect>
+
+    </aop:config>
+</beans>

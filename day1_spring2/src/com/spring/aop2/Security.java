@@ -1,4 +1,4 @@
-package com.spring.apo2;
+package com.spring.aop2;
 
 /**
  * Created by IntelliJ IDEA.
@@ -10,7 +10,7 @@ package com.spring.apo2;
  * @Create : 2018-11-09-18:18
  */
 public class Security {
-    public void siSecurity(){
+    public void isSecurity(){
         System.out.println("Security........isSecurity()环境安全");
     }
 }
