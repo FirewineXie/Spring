@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+
+    <bean id="smallpanda" class="com.spring.di1.Panda">
+        <property name="name" value="熊猫"></property>
+        <property name="age" value="40"></property>
+    </bean>
+
+
+    <bean id="person" class="com.spring.di1.Person">
+
+        <property name="name" value="王二麻子"></property>
+        <property name="pet"  ref="smallpanda"></property><!--这里选择ref是因为panda是一个对象，对象里面还有两个值-->
+        <property name="list" >
+            <list>
+                <value>list1</value>
+                <value>中国</value><!--这里面默认的是String类型的-->
+                <ref bean="smallpanda"/>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>set1</value>
+                <value>china</value>
+                <ref bean="smallpanda"/>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="name" value="李四"></entry>
+                <entry key="age" value="10"></entry>
+
+            </map>
+        </property>
+        <property name="properties">
+            <!--描述的.properties 的配置文件-->
+            <props>
+                <prop key="driver">com.mysql.jdbc.mysql</prop>
+                <prop key="url">jdbc:..........</prop>
+            </props>
+        </property>
+    </bean>
+
+</beans>
