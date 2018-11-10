@@ -1,4 +1,4 @@
-package com.spring.aop2;
+package com.spring.annotation.ioc1;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -10,20 +10,18 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
  * @auther : Firewine
  * @mail ： 1451661318@qq.com
  * @Program Name: <br>
- * @Create : 2018-11-09-19:29
+ * @Create : 2018-11-10-16:14
+ * @Description :  <br/>
  */
 public class Window {
-
     public static void main(String[] args) {
-//        BanServiceProxy  banServiceProxy = new BanServiceProxy();
-//
-//        banServiceProxy.chaMoney();
 
         ApplicationContext applicationContext = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        BankServiceImpl bankService = (BankServiceImpl) applicationContext.getBean("bankServiceImpl");
+        ji smallji = (ji) applicationContext.getBean("bigji");
 
-        bankService.getMoney();
-//        bankService.rendMoney();
+        smallji.behavior();
+
+
     }
 }

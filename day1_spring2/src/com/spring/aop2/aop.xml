@@ -17,10 +17,22 @@
     <!-- 配置安全bean -->
     <bean id="clean" class="com.spring.aop2.Clean"></bean>
 
+    <!--配置接收返回值得切面-->
+    <bean id="receive" class="com.spring.aop2.Receive"></bean>
+    <!--配置环绕-->
+    <bean id="auth" class="com.spring.aop2.Auth"></bean>
+
+    <!--配置异常处理切面-->
+    <bean id="globalExpt" class="com.spring.aop2.Global"></bean>
+
     <!-- 配置aop -->
     <aop:config>
         <!-- 配置切入点 -->
         <aop:pointcut expression="execution (* com.spring.aop2.BankServiceImpl.* (..))" id="aaa"/>
+        <!--配置环绕通知-->
+        <aop:aspect ref="auth">
+            <aop:around method="isUserExist" pointcut-ref="aaa" ></aop:around>
+        </aop:aspect>
         <!--  配置切面-->
         <aop:aspect ref="security">
             <!--before ： 代表前置通知
@@ -28,12 +40,21 @@
                 pointcut-ref : 切入点id-->
             <aop:before method="isSecurity" pointcut-ref="aaa"/>
         </aop:aspect>
-        <aop:aspect ref="riZhi" order="1"><!--数值越大，越先执行-->
+        <!--配置日志切面-->
+        <aop:aspect ref="riZhi" ><!--数值越大，越先执行-->
             <aop:after method="log" pointcut-ref="aaa"/>
         </aop:aspect>
-        <aop:aspect ref="clean" order="2">
+        <!--配置清空-->
+        <aop:aspect ref="clean" >
             <aop:after method="ClearResource" pointcut-ref="aaa"/>
         </aop:aspect>
-
+        <!--配置接收参数-->
+        <aop:aspect ref="receive">
+            <aop:after-returning method="printMoney" pointcut-ref="aaa" returning="m"/>
+        </aop:aspect>
+        <!--配置异常处理-->
+        <aop:aspect ref="globalExpt">
+            <aop:after-throwing method="hanExpt" pointcut-ref="aaa" throwing="ex"/>
+        </aop:aspect>
     </aop:config>
 </beans>

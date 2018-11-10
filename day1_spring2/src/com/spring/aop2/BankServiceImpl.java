@@ -16,22 +16,26 @@ public class BankServiceImpl {
     /**
      * Desciption: 查询余额
      */
-    public void getMoney(){//高内聚，低耦合
-        System.out.println("BankServiceImpl ........getMoney() ......");
+    public int getMoney(){//高内聚，低耦合
+        int i = 10 / 0 ;
+        System.out.println("BankServiceImpl ........getMoney() ......" );
+        return 500;
     }
 
     /**
      * Desciption： 转账
      */
-    public void rendMoney(){
+    public String rendMoney(){
         System.out.println("BankServiceImpl ........rendMoney() ......");
+        return "哈哈";
     }
 
     /**
      * Descption ： 投资理财
      */
-    public void invest(){
+    public float invest(){
         System.out.println("BankServiceImpl ........inverst() ......");
+        return 3.14f;
     }
 
 
