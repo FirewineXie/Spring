@@ -26,6 +26,7 @@
 		<!-- 如果字面值包含特殊字符可以使用  用CDATA包括起来-->
 		<!-- 属性值可以使用value子节点进行配置 -->
 			<value><![CDATA[<shanghai^>]]></value>
+			<!--含有特殊字符，可以用其前面的进行注释<![CDATA[<shanghai^>]]>-->
 		</constructor-arg>	
 		<constructor-arg value="30000"  ></constructor-arg>
 	</bean>
