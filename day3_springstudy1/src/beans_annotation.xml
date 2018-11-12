@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- 指定spring IOC 容器扫描的包 -->
+	<!-- 可以通过resource-pattern 指定扫描的资源 <context:component-scan base-package="com.spring.annotation"
+		resource-pattern="repostitory/*.class">
+		
+		</context:component-scan>-->
+	<!-- <context:include-filter> 子节点表示要包含的目标类
+<context:exclude-filter> 子节点表示要排除在外的目标类
+<context:component-scan> 下可以拥有若干个 <context:include-filter> 和 <context:exclude-filter> 子节点
+	 -->
+	 <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Repository"  排除这个/>  -->
+	 <!-- <context:include-filter type="annotation" expression="org.springframework.stereotype.Repository" 只包含这个/> -->
+	<context:component-scan base-package="com.spring.annotation">
+		
+		
+		</context:component-scan>
+	
+	<!-- resource-pattern  相当于资源限制，指定包去扫描 -->
+</beans>
