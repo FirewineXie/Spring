@@ -2,12 +2,11 @@ package com.spring.tx.tx.xml;
 
 import java.util.Arrays;
 
+import com.spring.tx.BookShopService;
+import com.spring.tx.Cashier;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import com.atguigu.spring.tx.xml.service.BookShopService;
-import com.atguigu.spring.tx.xml.service.Cashier;
 
 public class SpringTransactionTest {
 
@@ -18,9 +17,9 @@ public class SpringTransactionTest {
 	
 	{
 		ctx = new ClassPathXmlApplicationContext("applicationContext-tx-xml.xml");
-		bookShopDao = ctx.getBean(BookShopDao.class);
-		bookShopService = ctx.getBean(BookShopService.class);
-		cashier = ctx.getBean(Cashier.class);
+//		bookShopDao = ctx.getBean(BookShopDao.class);
+//		bookShopService = ctx.getBean(BookShopService.class);
+//		cashier = ctx.getBean(Cashier.class);
 	}
 	
 	@Test
