@@ -1,4 +1,4 @@
-package com.atguigu.springmvc.test;
+package com.springmvc.test;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

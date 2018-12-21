@@ -6,6 +6,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
 
+
+
     <!--配置自动扫描的包-->
     <context:component-scan base-package="com.springmvc"></context:component-scan>
 
@@ -38,4 +40,50 @@
         </property>
     </bean>
 
+
+    <!--通过超链接，改变网页语言环境-->
+    <!--配置国际化资源文件-->
+    <bean id="messageSource"
+    class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="i18n"></property>
+    </bean>
+
+    <!--配置SessiuonLocalResolver-->
+    <bean id="localeResolver"
+          class="org.springframework.web.servlet.i18n.SessionLocaleResolver"></bean>
+
+
+    <!--多个拦截器的顺序跟servelt的拦截器是一样的-->
+    <mvc:interceptors>
+        <!--配置自定义的拦截器-->
+        <bean class="com.springmvc.interceptors.FirstInterceptor"></bean>
+        <!--可以配置拦截器(不)作用的路径-->
+        <mvc:interceptor>
+            <mvc:mapping path="/emps"/>
+            <bean class="com.springmvc.interceptors.SecondInterceptor"/>
+        </mvc:interceptor>
+        <!--配置LocaleChangeInterceptor-->
+        <bean class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor"></bean>
+    </mvc:interceptors>
+    <!--<mvc:view-controller path="/i18n" view-name="i18n"/>-->
+    <mvc:view-controller path="/i18n2" view-name="i18n2"/>
+
+
+    <!--文件上传配置实现类-->
+    <!--配置MultiparResolve-->
+    <bean id="multipartResolver"
+          class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="UTF-8"></property>
+        <property name="maxUploadSize" value="102400"></property>
+    </bean>
+
+    <!-- 配置使用 SimpleMappingExceptionResolver 来映射异常 -->
+    <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <property name="exceptionAttribute" value="ex"></property>
+        <property name="exceptionMappings">
+            <props>
+                <prop key="java.lang.ArrayIndexOutOfBoundsException">error</prop>
+            </props>
+        </property>
+    </bean>
 </beans>

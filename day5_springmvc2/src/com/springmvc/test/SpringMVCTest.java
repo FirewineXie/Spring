@@ -90,6 +90,13 @@ public class SpringMVCTest {
 		return "success";
 	}
 
+	/**
+	 * 这个做文件上传是最简单的
+	 * @param desc
+	 * @param file
+	 * @return
+	 * @throws IOException
+	 */
 	@RequestMapping("/testFileUpload")
 	public String testFileUpload(@RequestParam("desc") String desc,
 								 @RequestParam("file") MultipartFile file) throws IOException{
@@ -106,6 +113,12 @@ public class SpringMVCTest {
 		return "i18n";
 	}
 
+	/**
+	 * 可以做文件下载
+	 * @param session
+	 * @return
+	 * @throws IOException
+	 */
 	@RequestMapping("/testResponseEntity")
 	public ResponseEntity<byte[]> testResponseEntity(HttpSession session) throws IOException{
 		byte [] body = null;

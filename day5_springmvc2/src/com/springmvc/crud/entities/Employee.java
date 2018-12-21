@@ -2,28 +2,39 @@ package com.springmvc.crud.entities;
 
 import java.util.Date;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
+
+import javax.validation.constraints.Past;
 
 public class Employee {
 
 	private Integer id;
-
+	@NotEmpty
 	private String lastName;
 
-
+	@Email
 	private String email;
 	//1 male, 0 female
 	private Integer gender;
 	
 	private Department department;
-	
 
+	/**
+	 * 前台输入的字符串，后面这个注解，可以格式化
+	 */
+	@Past
 	@DateTimeFormat(pattern="yyyy-MM-dd")
 	private Date birth;
 	
 	@NumberFormat(pattern="#,###,###.#")
 	private Float salary;
+
+	public Employee(Object o, String lastName, String email, Integer gender, Department department) {
+	}
+
 
 	public Integer getId() {
 		return id;
@@ -83,20 +94,19 @@ public class Employee {
 
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", lastName=" + lastName + ", email="
-				+ email + ", gender=" + gender + ", department=" + department
-				+ ", birth=" + birth + ", salary=" + salary + "]";
+		return "Employee{" +
+				"id=" + id +
+				", lastName='" + lastName + '\'' +
+				", email='" + email + '\'' +
+				", gender=" + gender +
+				", department=" + department +
+				", birth=" + birth +
+				", salary=" + salary +
+				'}';
 	}
 
-	public Employee(Integer id, String lastName, String email, Integer gender,
-			Department department) {
-		super();
-		this.id = id;
-		this.lastName = lastName;
-		this.email = email;
-		this.gender = gender;
-		this.department = department;
-	}
+	
+	
 
 	public Employee() {
 		// TODO Auto-generated constructor stub
