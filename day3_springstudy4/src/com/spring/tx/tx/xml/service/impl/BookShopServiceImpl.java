@@ -1,8 +1,8 @@
 package com.spring.tx.tx.xml.service.impl;
 
-import com.atguigu.spring.tx.xml.BookShopDao;
-import com.atguigu.spring.tx.xml.service.BookShopService;
 
+import com.spring.tx.BookShopDao;
+import com.spring.tx.BookShopService;
 
 public class BookShopServiceImpl implements BookShopService {
 
