@@ -28,7 +28,7 @@ public class LoggingAspect {
 	
 	//后置通知： 在目标方法执行后（无论是否发生异常），执行的通知
 	//在后置通知中还不能访问目标方法执行的结果，
-	@After("execution(public int com.spring.aop.impl.ArithmeticCalculator.*(int, int ))")
+	@After("execution(public int com.spring.aop.impl.*.*(int, int ))")
 	public void afterMethod(JoinPoint joinPoint) {
 		String methodName = joinPoint.getSignature().getName();
 		System.out.println("The method " + methodName + "ends");

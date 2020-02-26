@@ -19,7 +19,7 @@ i、切面首先是一个IOC 中的bean ，即加入@component 注解
 ii、切面还需要加入@aspect 注解
 
 3在类中声明各种通知
-
+  5种通知 其实就是方法
 i声明一个方法
 ii在方法前加入@before注解
 
@@ -28,7 +28,7 @@ ii在方法前加入@before注解
 @Component
 public class LoggingAspect {
 	//声明该方法是一个前置通知：在目标方法开始之前执行
-	@Before("execution(public int com.spring.aop.impl.ArithmeticCalculator.*(int, int ))")
+	@Before("execution(public int com.spring.aop.impl.*.*(int, int ))")
 	public void beforeMethod(JoinPoint joinpoint) {
 		String methodName = joinpoint.getSignature().getName();
 		List<Object> args = Arrays.asList(joinpoint.getArgs());

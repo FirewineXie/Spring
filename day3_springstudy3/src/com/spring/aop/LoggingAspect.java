@@ -24,7 +24,7 @@ public class LoggingAspect {
 	/*
 	 * 定义一个方法：用于声明切入点表达式，一般地，该方法种再不需要填入其他的代码
 	 * 使用@Pointcut 来声明切入点表达式
-	 * 后面的其他直接使用方法名来引用当前的切入点返回值
+	 * 后面的其他直接使用方法名来引用当前的切入点表达式
 	 */
 	@Pointcut("execution(public int com.spring.aop.ArithmeticCalculator.*(..))")
 	public void declareJoinPointException() {}
