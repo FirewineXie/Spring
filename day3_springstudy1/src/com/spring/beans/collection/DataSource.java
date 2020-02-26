@@ -1,4 +1,4 @@
-package com.spring.collection;
+package com.spring.beans.collection;
 
 import java.util.Properties;
 

@@ -1,4 +1,4 @@
-package com.spring.collection;
+package com.spring.beans.collection;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -16,8 +16,8 @@ public class Main {
 		System.out.println(newperson);
 	
 		
-//		DataSource dataSource = context.getBean(DataSource.class);
-//		System.out.println(dataSource);
+		// DataSource dataSource = context.getBean(DataSource.class);
+		// System.out.println(dataSource);
 
 		
 		Person person4 = (Person) context.getBean("person4");

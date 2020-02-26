@@ -74,7 +74,7 @@
 		<property name="car.maxSpeed" value="3000"></property>
 	</bean>
 		<!-- 测试如何配置集合属性 -->
-		<bean id="person3" class="com.spring.collection.Person">
+		<bean id="person3" class="com.spring.beans.collection.Person">
 			<property name="name" value="mike"></property>
 			<property name="age" value="26"></property>
 			<!-- 使用list  包含
@@ -89,7 +89,7 @@
 		</bean>
 	
 	<!-- 配置map属性值 -->
-	<bean id="newperson" class="com.spring.collection.NewPerson">
+	<bean id="newperson" class="com.spring.beans.collection.NewPerson">
 		<property name="name" value="rose"></property>
 		<property name="age" value="28"></property>
 		<property name="cars">
@@ -103,7 +103,7 @@
 	</bean>
 	
 	<!-- 配置properti 的属性值 -->
-	<bean id="datesource" class="com.spring.collection.DataSource">
+	<bean id="datesource" class="com.spring.beans.collection.DataSource">
 		<property name="properties">
 		<!-- 使用props和prop  子节点来为Properties 的属性赋值 -->
 			<props>
@@ -126,7 +126,7 @@
 	
 	</util:list>
 	
-	<bean id="person4" class="com.spring.collection.Person">
+	<bean id="person4" class="com.spring.beans.collection.Person">
 		<property name="name" value="jacl"></property>
 		<property name="age" value="29"></property>
 		<property name="cars" ref="cars"></property>
@@ -135,5 +135,5 @@
 	
 	<!-- 通过p命名空间为bean 的属性赋值， 需要导入p的命名空间 -->
 	<!-- 相对于传统的配置方式更加的简洁 -->
-	<bean id="person5" class="com.spring.collection.Person" p:age="30" p:name="queen" p:cars-ref="cars"></bean>
+	<bean id="person5" class="com.spring.beans.collection.Person" p:age="30" p:name="queen" p:cars-ref="cars"></bean>
 </beans>

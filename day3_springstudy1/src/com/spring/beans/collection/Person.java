@@ -1,17 +1,15 @@
-package com.spring.collection;
+package com.spring.beans.collection;
 
 import java.util.List;
-import java.util.Map;
 
 import com.spring.helloworld.Car;
 
 //
 
-public class NewPerson {
+public class Person {
 	private String name;
 	private int age;
-	
-	private Map<String, Car> cars;
+	private List<Car> cars;
 	public String getName() {
 		return name;
 	}
@@ -25,10 +23,10 @@ public class NewPerson {
 		this.age = age;
 	}
 
-	public Map<String, Car> getCars() {
+	public List<Car> getCars() {
 		return cars;
 	}
-	public void setCars(Map<String, Car> cars) {
+	public void setCars(List<Car> cars) {
 		this.cars = cars;
 	}
 	@Override

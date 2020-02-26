@@ -1,11 +1,12 @@
 package com.spring.annotation;
 
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+
 
 import com.spring.annotation.controller.UserController;
 import com.spring.annotation.repository.UserRepository;
 import com.spring.annotation.service.UserService;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
@@ -23,8 +24,8 @@ public class Main {
 //		UserService userService = (UserService) context.getBean("userService");
 //		System.out.println(userService);
 //		
-//		UserRepository userRepository = (UserRepository) context.getBean("userRepository");
-//		System.out.println(userRepository);
+		UserRepository userRepository = (UserRepository) context.getBean("userRepository");
+		System.out.println(userRepository);
 		
 		
 		

@@ -9,7 +9,8 @@ import com.spring.annotation.repository.UserRepository;
 @Service
 public class UserService {
 	@Autowired
-	//@Qualifier("userRepositoryImpl") //可以在相同的bean情况下，选择
+	//@Qualifier("userRepositoryImpl") //可以在相同的bean情况下，选择，指定bean
+	//还可以加到够参里面
 	private UserRepository userRepository;
 	
 	public void add() {

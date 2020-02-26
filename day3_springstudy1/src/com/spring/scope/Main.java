@@ -1,10 +1,9 @@
 package com.spring.scope;
 
-import org.springframework.context.ApplicationContext;
-
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.spring.autowire.Car;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 

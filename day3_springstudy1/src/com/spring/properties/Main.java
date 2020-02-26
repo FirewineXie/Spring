@@ -3,7 +3,7 @@ package com.spring.properties;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.spring.collection.DataSource;
+import com.spring.beans.collection.DataSource;
 
 public class Main {
 	
